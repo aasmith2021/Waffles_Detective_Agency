@@ -4,6 +4,31 @@
             class="d-flex flex-column align-center primary mx-8"
             primary
         >
+                <v-dialog
+                    v-model="noNameInputDialog"
+                    width="40vw"
+                >
+                    <v-card class="d-flex flex-column align-center text-center">
+                        <v-card-title>
+                            Please Enter a Name
+                        </v-card-title>
+
+                        <v-card-text>
+                            You must enter a name between 1-25 characters. Please try again.
+                        </v-card-text>
+
+                        <v-card-actions>
+                            <v-btn
+                                color="primary"
+                                text
+                                @click="noNameInputDialog = false"
+                            >
+                                Ok
+                            </v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-dialog>
+
             <div class="d-flex flex-row">
                 <v-img
                     src="../assets/waffles_3.jpg"
@@ -37,14 +62,16 @@
                 class="d-flex flex-column align-center white--text text-h5 text-center font-weight-regular px-16"
                 v-show="currentPageNumber === 2"
             >
-                Well, grab your things ..... um, what is your name again?
-                <br />
-                <br />
-                <v-form id="name-form" class="mx-16 px-16">
+                <div v-show="currentPageNumber === 2">
+                    Well, grab your things ..... um, what is your name again?
+                    <br />
+                    <br />
+                </div>
+                <v-form id="name-form" class="mx-16 px-16" v-show="currentPageNumber === 2">
                     <v-text-field
                         class="centered-input white px-4 text-h6"
                         v-model="userName"
-                        v-bind:rules="[rules.maxLength]"
+                        maxlength="25"
                         required
                     >
                     </v-text-field>
@@ -121,9 +148,7 @@ export default {
         return {
             currentPageNumber: 0,
             userName: '',
-            rules: {
-                maxLength: value => value.length <= 30 || 'Max. 30 characters'
-            }
+            noNameInputDialog: false
         }
     },
     methods: {
@@ -133,14 +158,23 @@ export default {
         setCurrentPageNumber(newPageNumber) {
             this.currentPageNumber = newPageNumber;
         },
+        checkMinLength() {
+            if (this.userName.length === 0) {
+                this.noNameInputDialog = true;
+            }
+        },
         updateUserNameInStore() {
-            this.$store.commit('UPDATE_USER_NAME', this.userName);
-            this.setCurrentPageNumber(this.currentPageNumber + 1);
+            this.checkMinLength();
+
+            if (this.noNameInputDialog === false) {
+                this.$store.commit('UPDATE_USER_NAME', this.userName);
+                this.setCurrentPageNumber(this.currentPageNumber + 1);
+            }
         }
     },
     created() {
         this.currentPageNumber = 1;
-    }
+    },
 }
 </script>
 

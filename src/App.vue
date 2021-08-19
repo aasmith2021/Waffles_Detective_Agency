@@ -1,6 +1,7 @@
 <template>
-  <v-app id="app"
-    v-bind:class="{ 'set-app-background-to-black': !$store.state.startPageFinished}"  
+  <v-app
+    id="app"
+    class='set-app-background-to-black'  
   >
     <v-app-bar
       app
@@ -10,6 +11,7 @@
     >
     
       <v-card
+        :elevation="0"
         class="d-flex flex-row mx-1"
         color="primary"
       >
@@ -75,7 +77,6 @@ export default {
         'Home',
         'Map',
         'Suspects',
-        'Something'
       ]
     }
   }
@@ -84,6 +85,6 @@ export default {
 
 <style scoped>
 #app.set-app-background-to-black {
-  background-color: black;
+  background-color: #20292f;
 }
 </style>
