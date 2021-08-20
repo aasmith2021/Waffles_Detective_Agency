@@ -7,7 +7,7 @@
             <v-card
                 class="mt-6 mx-6"
                 v-bind:width="suspectCardWidth"
-                v-for="animal in $store.state.animals"
+                v-for="animal in $store.state.suspects"
                 v-bind:key="animal.name"
             >
                 <v-card-title

@@ -110,7 +110,16 @@ export default {
     animalDataService.getAnimalData()
       .then(response => {
         const allAnimals = response.data.animals;
-        this.$store.commit('SET_ALL_ANIMALS', allAnimals);
+        const numberOfSuspects = 9;
+        const suspects = [];
+
+        for (let i = 0; i < numberOfSuspects; i++) {
+          const randomIndexFromAllAnimals = Math.floor(Math.random() * allAnimals.length);
+          suspects.push(allAnimals[randomIndexFromAllAnimals]);
+          allAnimals.splice(randomIndexFromAllAnimals, 1);
+        }
+
+        this.$store.commit('SET_ALL_SUSPECTS', suspects);
       })
       .catch(error => {
           console.log(error);

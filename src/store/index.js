@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     userName: '',
     startPageFinished: false,
-    animals: []
+    suspects: []
   },
   mutations: {
     SET_START_PAGE_TO_FINISHED(state) {
@@ -16,8 +16,8 @@ export default new Vuex.Store({
     UPDATE_USER_NAME(state, newUserName) {
       state.userName = newUserName;
     },
-    SET_ALL_ANIMALS(state, animals) {
-      state.animals = animals;
+    SET_ALL_SUSPECTS(state, suspects) {
+      state.suspects = suspects;
     }
   },
   actions: {
