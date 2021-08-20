@@ -57,7 +57,7 @@
             "lifespan": "70",
             "habitat": "Fresh water lakes and rivers",
             "diet": "Fish",
-            "range": "Freshwaters of the southeastern United States",
+            "range": "Freshwaters of the Southeastern United States",
             "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Alligator_snapping_turtle.jpg"
         },
         {
@@ -181,6 +181,81 @@
             "image": "https://upload.wikimedia.org/wikipedia/commons/5/56/Pogona_vitticeps02.JPG"
         },
         {
+            "name": "Black Rhinoceros",
+            "latinName": "Diceros bicornis",
+            "type": "Mammal",
+            "activeTime": "Diurnal",
+            "lengthMin": "4.7",
+            "lengthMax": "5.2",
+            "weightMin": "2,000",
+            "weightMax": "2,900",
+            "lifespan": "40",
+            "habitat": "Woodland and scrubland",
+            "diet": "Woody plants, herbs, and fruits",
+            "range": "Central and Southern Africa",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/2/22/2012_Black_Rhinoceros_Gemsbokvlakte.jpg"
+        },
+        {
+            "name": "Blue-Crowned Motmot",
+            "latinName": "Momotus momota",
+            "type": "Bird",
+            "activeTime": "Diurnal",
+            "lengthMin": "1.1",
+            "lengthMax": "1.3",
+            "weightMin": ".4",
+            "weightMax": ".5",
+            "lifespan": "22",
+            "habitat": "Rainforest",
+            "diet": "Berries, fruits, insects and other small animals",
+            "range": "Northern South America",
+            "image": "https://www.costarica.com/contentAsset/resize-image/124ca72f-e1ea-462b-b5cd-68aa47644853/fileAsset/w/1000/.jpg"
+        },
+        {
+            "name": "Cape Porcupine",
+            "latinName": "Hystrix africaeaustralis",
+            "type": "Mammal",
+            "activeTime": "Nocturnal",
+            "lengthMin": "2.5",
+            "lengthMax": "3.0",
+            "weightMin": "40",
+            "weightMax": "65",
+            "lifespan": "15",
+            "habitat": "Savannah, scrubland and forest",
+            "diet": "Fruit, roots, tubers and bulbs",
+            "range": "Central and Southern Africa",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Hystrix_africaeaustralis_Blijdorp_Rotterdam.JPG"
+        },
+        {
+            "name": "Cheetah",
+            "latinName": "Acinonyx jubatus",
+            "type": "Mammal",
+            "activeTime": "Nocturnal",
+            "lengthMin": "2.3",
+            "lengthMax": "2.6",
+            "weightMin": "65",
+            "weightMax": "120",
+            "lifespan": "11",
+            "habitat": "Savannah and dry forest",
+            "diet": "Small antelope, warthogs, hares, and game birds",
+            "range": "Africa and Western Asia",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/0/09/TheCheethcat.jpg"
+        },
+        {
+            "name": "Cougar",
+            "latinName": "Puma concolor",
+            "type": "Mammal",
+            "activeTime": "Nocturnal",
+            "lengthMin": "3.4",
+            "lengthMax": "6.4",
+            "weightMin": "80",
+            "weightMax": "225",
+            "lifespan": "13",
+            "habitat": "Desert, savannah, tropical rainforest, forest, scrubland, and mountain areas",
+            "diet": "Mammals ranging in size from mice to white-tail deer",
+            "range": "Western North America, Florida, and Central and South America",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Mountain_Lion_in_Glacier_National_Park.jpg"
+        },
+        {
             "name": "Howler Monkey",
             "latinName": "Alouatta caraya",
             "type": "Mammal",
@@ -196,6 +271,36 @@
             "image": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Alouatta_guariba.jpg"
         },
         {
+            "name": "Kangaroo",
+            "latinName": "Macropodidae",
+            "type": "Marsupial",
+            "activeTime": "Diurnal",
+            "lengthMin": "3.25",
+            "lengthMax": "5.25",
+            "weightMin": "100",
+            "weightMax": "200",
+            "lifespan": "20",
+            "habitat": "Forest and grassland",
+            "diet": "Grass, herbs, leaves, and tree bark",
+            "range": "Eastern Australia",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Kangaroo_Australia_01_11_2008_-_retouch.JPG"
+        },
+        {
+            "name": "Manatee",
+            "latinName": "Trichechus manatus latirostris",
+            "type": "Mammal",
+            "activeTime": "Diurnal",
+            "lengthMin": "8.0",
+            "lengthMax": "15.0",
+            "weightMin": "3000",
+            "weightMax": "2500",
+            "lifespan": "60",
+            "habitat": "Costal wetlands",
+            "diet": "Aquatic plants",
+            "range": "Southeastern United States",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Manatee_at_Sea_World_Orlando_Mar_10.JPG"
+        },
+        {
             "name": "Puffin",
             "latinName": "Fratercula",
             "type": "Bird",
@@ -209,6 +314,21 @@
             "diet": "Fish, mollusks and crustaceans",
             "range": "North Atlantic Ocean",
             "image": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Puffin_%28Fratercula_arctica%29.jpg"
+        },
+        {
+            "name": "Wallaby",
+            "latinName": "Macropus rufogriseus",
+            "type": "Marsupial",
+            "activeTime": "Diurnal",
+            "lengthMin": "4.5",
+            "lengthMax": "5.5",
+            "weightMin": "25",
+            "weightMax": "50",
+            "lifespan": "15",
+            "habitat": "Forest",
+            "diet": "Grass and herbs",
+            "range": "Southeastern Australia, including Tasmania",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Macropus_rufogriseus_rufogriseus_Bruny.jpg"
         }
     ]
 }
