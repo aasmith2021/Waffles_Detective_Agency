@@ -1,24 +1,31 @@
 <template>
     <div>
         <h1 class="text-h2 white--text text-center mt-3">Suspects</h1>
-        <div class="d-flex flex-wrap justify-center">
+        <div
+            class="d-flex flex-wrap space-between"
+        >
             <v-card
                 class="mt-6 mx-6"
-                width="29vw"
-                height="330px"
+                v-bind:width="suspectCardWidth"
                 v-for="animal in $store.state.animals"
                 v-bind:key="animal.name"
             >
-                <v-card-title>
+                <v-card-title
+                    class="justify-center"
+                >
                     {{ animal.name }}
                 </v-card-title>
-                <div id="card-text-outer-div" class="d-flex flex-row align-start">
+                <div class="d-flex flex-column align-center flex-lg-row align-lg-start">
                     <v-img
                         v-bind:src="animal.image"
-                        class="suspect-picture rounded-0 mx-2 mb-2"
+                        v-bind:width="suspectImageWidth"
+                        class="rounded-0 mx-2 mb-2"
+                        contain
                     >
                     </v-img>
-                    <v-card-text id="suspect-text">
+                    <v-card-text
+                        class="px-2 pt-0 pb-2 text-center text-lg-left"
+                    >
                         <b>Type:</b> {{ animal.type }}
                         <br/>
                         <b>Height:</b> {{ animal.lengthMin }} - {{ animal.lengthMax }} ft.
@@ -43,23 +50,31 @@
 
 <script>
 export default {
-    name: 'suspects'
+    name: 'suspects',
+    computed: {
+        suspectCardWidth () {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'xs': return "90vw"
+                case 'sm': return "90vw"
+                case 'md': return "43.5vw"
+                case 'lg': return "29vw"
+                case 'xl': return "29vw"
+                default: return "29vw"
+            }
+        },
+        suspectImageWidth () {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'xs': return "50vw"
+                case 'sm': return "50vw"
+                case 'md': return "35vw"
+                case 'lg': return "13vw"
+                case 'xl': return "13vw"
+                default: return "13vw"
+            }
+        }
+    }
 }
 </script>
 
 <style scoped>
-#suspect-text {
-    padding: 0;
-    margin: 0 4px 4px 4px;
-}
-
-#card-text-outer-div {
-    height: 30vh;
-}
-
-div#card-text-outer-div > .suspect-picture {
-    width: 12vw;
-    max-height: 90%;
-    object-fit: cover;
-}
 </style>
