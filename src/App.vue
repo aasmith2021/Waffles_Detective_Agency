@@ -12,16 +12,28 @@
     
       <v-card
         :elevation="0"
-        class="d-flex flex-row mx-1"
-        color="primary"
+        class="d-flex flex-row mx-1 align-center"
+        color="transparent"
       >
         <v-img
           src="./assets/waffles_3.jpg"
           width="50px"
           class="rounded-0 mr-4"
+          contain
         >
         </v-img>
-        <h1>Waffles' Detective Agency</h1>
+        <v-card-text
+          class="text-h4 text-lg-h3 white--text"
+          v-show="$vuetify.breakpoint.name != 'xs'"
+        >
+          Waffles' Detective Agency
+        </v-card-text>
+        <v-card-text
+          class="white--text text-h4"
+          v-show="$vuetify.breakpoint.name === 'xs'"
+        >
+          W.D.A.
+        </v-card-text>
       </v-card>
       
       <v-spacer></v-spacer>
@@ -81,6 +93,18 @@ export default {
         'Suspects',
       ]
     }
+  },
+  computed: {
+        appBarImageWidth () {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'xs': return "30px"
+                case 'sm': return "30px"
+                case 'md': return "50px"
+                case 'lg': return "50px"
+                case 'xl': return "50px"
+                default: return "50px"
+            }
+        }
   },
   created() {
     animalDataService.getAnimalData()

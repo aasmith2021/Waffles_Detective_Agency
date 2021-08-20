@@ -2,11 +2,10 @@
     <div>
         <v-card
             class="d-flex flex-column align-center primary mx-8"
-            primary
         >
                 <v-dialog
                     v-model="noNameInputDialog"
-                    width="40vw"
+                    :width="dialogWidth"
                 >
                     <v-card class="d-flex flex-column align-center text-center">
                         <v-card-title>
@@ -29,10 +28,10 @@
                     </v-card>
                 </v-dialog>
 
-            <div class="d-flex flex-row">
+            <div class="d-flex flex-column flex-md-row align-center">
                 <v-img
                     src="../assets/waffles_3.jpg"
-                    width="8vw"
+                    width="125px"
                     class="rounded-0 mr-4 mt-4"
                 >
                 </v-img>
@@ -40,7 +39,7 @@
                 <!-- CARD TITLE -->            
                 <v-card-title
                     v-show="currentPageNumber === 1"
-                    class="my-2 mt-4 white--text text-h2"
+                    class="my-2 mt-4 white--text text-h4 text-md-h2 text-center"
                 >
                 There's Been A Murder!
                 </v-card-title>
@@ -48,7 +47,7 @@
 
             <!-- CARD TEXT -->
             <v-card-text
-                class="white--text text-h5 text-center font-weight-regular px-16"
+                class="white--text text-subtitle-1 text-sm-h5 text-center font-weight-regular px-16"
                 v-show="currentPageNumber === 1"
             >
                 Thank goodness you're here! There's no time to waste...we've got to get moving before the trail gets
@@ -59,7 +58,7 @@
             </v-card-text>
 
             <v-card-text
-                class="d-flex flex-column align-center white--text text-h5 text-center font-weight-regular px-16"
+                class="d-flex flex-column align-center white--text text-subtitle-1 text-sm-h5 text-center font-weight-regular px-16"
                 v-show="currentPageNumber === 2"
             >
                 <div v-show="currentPageNumber === 2">
@@ -67,7 +66,7 @@
                     <br />
                     <br />
                 </div>
-                <v-form id="name-form" class="mx-16 px-16" v-show="currentPageNumber === 2">
+                <v-form id="name-form" v-show="currentPageNumber === 2">
                     <v-text-field
                         class="centered-input white px-4 text-h6"
                         v-model="userName"
@@ -79,27 +78,27 @@
             </v-card-text>
 
             <v-card-text
-                class="white--text text-h5 text-center font-weight-regular px-16"
+                class="white--text text-subtitle-1 text-sm-h5 text-center font-weight-regular px-16"
                 v-show="currentPageNumber === 3"
             >
                 It's nice to meet you, <b>{{ userName }}</b>!
                 <br />
                 <br />
-                My name is Detective Waffles, and I'm the top mystery-solving K9 in the world!
+                My name is Detective Waffles, and I'm the top mystery-solving dog in the world!
                 <br />
                 <br />
                 But, I'll need your assistance to find clues, interview suspects, and identify the murderer.
             </v-card-text>
 
             <v-card-text
-                class="white--text text-h5 text-center font-weight-regular px-16"
+                class="white--text text-subtitle-1 text-sm-h5 text-center font-weight-regular px-16"
                 v-show="currentPageNumber === 4"
             >
                 Are you ready to solve the mystery with me?
             </v-card-text>
 
             <v-card-text
-                class="white--text text-h5 text-center font-weight-regular px-16"
+                class="white--text text-subtitle-1 text-sm-h5 text-center font-weight-regular px-16"
                 v-show="currentPageNumber === 5"
             >
                 All right, then! Let's get started!
@@ -133,9 +132,10 @@
             <v-btn
                 v-show="currentPageNumber === 5"
                 class="my-5"
+                :height="letsGoButtonHeight"
                 @click="setStartPageToFinished"
             >
-                Let's go! We have a murderer to find!
+                Let's go!<br v-show="addButtonBreak" /> We have a murderer<br v-show="addButtonBreak" /> to find!
             </v-btn>
         </v-card>
     </div>
@@ -173,6 +173,38 @@ export default {
             }
         }
     },
+    computed: {
+        dialogWidth () {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'xs': return "80vw"
+                case 'sm': return "70vw"
+                case 'md': return "60vw"
+                case 'lg': return "50vw"
+                case 'xl': return "50vw"
+                default: return "50vw"
+            }
+        },
+        letsGoButtonHeight () {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'xs': return "50px"
+                case 'sm': return ""
+                case 'md': return ""
+                case 'lg': return ""
+                case 'xl': return ""
+                default: return ""
+            }
+        },
+        addButtonBreak () {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'xs': return true
+                case 'sm': return false
+                case 'md': return false
+                case 'lg': return false
+                case 'xl': return false
+                default: return false
+            }
+        }
+    },
     created() {
         this.currentPageNumber = 1;
     },
@@ -182,7 +214,8 @@ export default {
 <style scoped>
 #name-form {
     justify-self: center;
-    width: 30vw;
+    width: 60vw;
+    max-width: 350px;
 }
 
 .centered-input >>> input {
