@@ -60,11 +60,13 @@
     <v-main v-if="$store.state.startPageFinished">
       <router-view/>
     </v-main>
+
   </v-app>
 </template>
 
 <script>
 import StartPage from './components/StartPage.vue';
+import animalDataService from './services/animalDataService.js';
 
 export default {
   name: 'App',
@@ -79,6 +81,16 @@ export default {
         'Suspects',
       ]
     }
+  },
+  created() {
+    animalDataService.getAnimalData()
+      .then(response => {
+        const allAnimals = response.data.animals;
+        this.$store.commit('SET_ALL_ANIMALS', allAnimals);
+      })
+      .catch(error => {
+          console.log(error);
+      })
   }
 };
 </script>

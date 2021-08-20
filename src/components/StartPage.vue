@@ -154,6 +154,7 @@ export default {
     methods: {
         setStartPageToFinished() {
             this.$store.commit('SET_START_PAGE_TO_FINISHED');
+            this.$router.push({ name: 'Home'});
         },
         setCurrentPageNumber(newPageNumber) {
             this.currentPageNumber = newPageNumber;
