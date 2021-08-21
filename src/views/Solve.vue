@@ -7,6 +7,15 @@
                 <v-card-title>
                     This page is where the Solve the Case will be!
                 </v-card-title>
+                <v-form>
+                    <v-select
+                        :items="suspectNames"
+                    >
+                    </v-select>
+                    <v-btn>
+                        Accuse the suspect of murder!
+                    </v-btn>
+                </v-form>
             </v-card>
         </div>
     </div>
@@ -14,7 +23,17 @@
 
 <script>
 export default {
-
+    name: 'solve',
+    data() {
+        return {
+            suspectNames: []
+        }
+    },
+    created() {
+        for (let i = 0; i < this.$store.state.suspects.length; i++) {
+            this.suspectNames.push(this.$store.state.suspects[i].name);
+        }
+    }
 }
 </script>
 

@@ -12,6 +12,7 @@ export default new Vuex.Store({
     leadingSuspects: [],
     notTheMurderer: [],
     murderer: {},
+    accusationsRemaining: 2
   },
   mutations: {
     SET_START_PAGE_TO_FINISHED(state) {
