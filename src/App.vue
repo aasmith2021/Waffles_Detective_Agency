@@ -23,7 +23,7 @@
         >
         </v-img>
         <v-card-text
-          class="text-h4 text-lg-h3 white--text"
+          class="text-h4 white--text"
           v-show="$vuetify.breakpoint.name != 'xs'"
         >
           Waffles' Detective Agency
@@ -56,7 +56,7 @@
             <v-list-item
               v-for="(item, index) in menuItems"
               v-bind:key="index"
-              @click="$route.name != item ? $router.push({ name: item }) : ''"
+              @click="routeToPage(item)"
             >
             {{ item }}
             </v-list-item>
@@ -91,7 +91,17 @@ export default {
         'Home',
         'Map',
         'Suspects',
+        'Solve the Case'
       ]
+    }
+  },
+  methods: {
+    routeToPage(item) {
+      if((this.$route.name != item) && (item != 'Solve the Case')) {
+        this.$router.push({ name: item });
+      } else if ((this.$route.name != 'Solve') && (item === 'Solve the Case')) {
+        this.$router.push({ name: 'Solve'});
+      }
     }
   },
   computed: {
@@ -119,7 +129,14 @@ export default {
           allAnimals.splice(randomIndexFromAllAnimals, 1);
         }
 
+        const currentSuspects = [...suspects];
+
+        const randomIndexFromSuspects = Math.floor(Math.random() * suspects.length);
+        const murderer = suspects[randomIndexFromSuspects];
+
         this.$store.commit('SET_ALL_SUSPECTS', suspects);
+        this.$store.commit('SET_ALL_CURRENT_SUSPECTS', currentSuspects);
+        this.$store.commit('SET_MURDERER', murderer);
       })
       .catch(error => {
           console.log(error);

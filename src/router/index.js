@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Map from '../views/Map.vue'
 import Suspects from '../views/Suspects.vue'
+import Solve from '../views/Solve.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/suspects',
     name: 'Suspects',
     component: Suspects
+  },
+  {
+    path: '/solve',
+    name: 'Solve',
+    component: Solve
   }
 ]
 

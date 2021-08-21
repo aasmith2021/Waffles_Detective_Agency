@@ -9,11 +9,9 @@ export default new Vuex.Store({
     startPageFinished: false,
     suspects: [],
     currentSuspects: [],
-    currentSuspectsChecked: [],
     leadingSuspects: [],
-    leadingSuspectsChecked: [],
     notTheMurderer: [],
-    notTheMurdererChecked: []
+    murderer: {},
   },
   mutations: {
     SET_START_PAGE_TO_FINISHED(state) {
@@ -24,7 +22,12 @@ export default new Vuex.Store({
     },
     SET_ALL_SUSPECTS(state, suspects) {
       state.suspects = suspects;
+    },
+    SET_ALL_CURRENT_SUSPECTS(state, suspects) {
       state.currentSuspects = suspects;
+    },
+    SET_MURDERER(state, murderer) {
+      state.murderer = murderer;
     },
     MOVE_FROM_CS_TO_LS(state, suspect) {
       const indexOfSuspectInCS = state.currentSuspects.findIndex((element) => {
