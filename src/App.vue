@@ -7,7 +7,7 @@
       app
       color="primary"
       dark
-      v-show="$store.state.startPageFinished"
+      v-show="$store.state.startPageFinished && !$store.state.exitGame"
     >
     
       <v-card

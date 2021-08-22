@@ -4,6 +4,7 @@
             class="d-flex flex-column align-center primary mx-8"
         >
                 <v-dialog
+                    persistent
                     v-model="noNameInputDialog"
                     :width="dialogWidth"
                 >
@@ -19,7 +20,6 @@
                         <v-card-actions>
                             <v-btn
                                 color="primary"
-                                text
                                 @click="noNameInputDialog = false"
                             >
                                 Ok

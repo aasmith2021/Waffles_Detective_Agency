@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     userName: '',
     startPageFinished: false,
+    exitGame: false,
     suspects: [],
     currentSuspects: [],
     leadingSuspects: [],
@@ -17,6 +18,9 @@ export default new Vuex.Store({
   mutations: {
     SET_START_PAGE_TO_FINISHED(state) {
       state.startPageFinished = true;
+    },
+    SET_EXIT_GAME_TO_TRUE(state) {
+      state.exitGame = true;
     },
     UPDATE_USER_NAME(state, newUserName) {
       state.userName = newUserName;
