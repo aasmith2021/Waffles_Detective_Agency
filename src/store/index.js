@@ -77,6 +77,9 @@ export default new Vuex.Store({
 
       state.leadingSuspects.push(suspect);
       state.notTheMurderer.splice(indexOfSuspectInNTM, 1);
+    },
+    DECREMENT_ACCUSATIONS_REMAINING(state) {
+      state.accusationsRemaining--;
     }
   },
   actions: {
