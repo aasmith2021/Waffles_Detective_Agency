@@ -5,31 +5,31 @@
 
     <v-card class="d-flex flex-column align-start mt-6 mx-6">
       <v-card-title class="text-h4 ml-2">
-        Not The <br v-show="addCardTitleBreak" />Murderer
+        Not The <br v-show="addCardTitleBreak" />Thief
       </v-card-title>
       <v-btn
-        class="ml-6 mb-3"
+        class="mx-6 mb-3"
         color="primary"
         width="200px"
         height="30px"
-        :disabled="notTheMurdererCheckedArray.length === 0"
-        @click="moveNTMToCS"
+        :disabled="notTheThiefCheckedArray.length === 0"
+        @click="moveNTTToCS"
       >
         Current Suspect
       </v-btn>
       <v-btn
-        class="ml-6 mb-2"
+        class="mx-6 mb-2"
         color="primary"
         width="200px"
         height="30px"
-        :disabled="notTheMurdererCheckedArray.length === 0"
-        @click="moveNTMToLS"
+        :disabled="notTheThiefCheckedArray.length === 0"
+        @click="moveNTTToLS"
       >
         Leading Suspect
       </v-btn>
 
       <v-card
-        v-for="suspect in $store.state.notTheMurderer"
+        v-for="suspect in $store.state.notTheThief"
         v-bind:key="suspect.name"
         class="d-flex align-center elevation-0 ml-6 pa-0"
         color="transparent"
@@ -37,13 +37,13 @@
       >
         <v-checkbox
             height="10px"
-            v-model="notTheMurdererCheckedArray"
+            v-model="notTheThiefCheckedArray"
             :value="suspect"
         >
         </v-checkbox>
         <v-card-title
             class="ml-2 mr-6 pa-0 text-h6"
-            :class="{ 'primary--text': notTheMurdererCheckedArray.includes(suspect) }"
+            :class="{ 'primary--text': notTheThiefCheckedArray.includes(suspect) }"
         >
             {{ suspect.name }}
         </v-card-title>
@@ -57,7 +57,7 @@
         Current <br v-show="addCardTitleBreak" />Suspects
       </v-card-title>
       <v-btn
-        class="ml-6 mb-3"
+        class="mx-6 mb-3"
         color="primary"
         width="200px"
         height="30px"
@@ -67,14 +67,14 @@
         Leading Suspect
       </v-btn>
       <v-btn
-        class="ml-6 mb-2"
+        class="mx-6 mb-2"
         color="primary"
         width="200px"
         height="30px"
         :disabled="currentSuspectCheckedArray.length === 0"
-        @click="moveCSToNTM"
+        @click="moveCSToNTT"
       >
-        Not The Murderer
+        Not The Thief
       </v-btn>
 
       <v-card
@@ -91,7 +91,7 @@
         >
         </v-checkbox>
         <v-card-title
-            class="ml-2 mr-6 pa-0"
+            class="m-2 mr-6 pa-0"
             :class="{ 'primary--text': currentSuspectCheckedArray.includes(suspect) }"
         >
             {{ suspect.name }}
@@ -106,7 +106,7 @@
         Leading <br v-show="addCardTitleBreak" />Suspects
       </v-card-title>
       <v-btn
-        class="ml-6 mb-3"
+        class="mx-6 mb-3"
         color="primary"
         width="200px"
         height="30px"
@@ -116,14 +116,14 @@
         Current Suspect
       </v-btn>
       <v-btn
-        class="ml-6 mb-2"
+        class="mx-6 mb-2"
         color="primary"
         width="200px"
         height="30px"
         :disabled="leadingSuspectCheckedArray.length === 0"
-        @click="moveLSToNTM"
+        @click="moveLSToNTT"
       >
-        Not The Murderer
+        Not The Thief
       </v-btn>
 
       <v-card
@@ -160,7 +160,7 @@
       return {
         currentSuspectCheckedArray: [],        
         leadingSuspectCheckedArray: [],
-        notTheMurdererCheckedArray: [],
+        notTheThiefCheckedArray: [],
       }
     },
     methods: {
@@ -171,9 +171,9 @@
 
         this.currentSuspectCheckedArray = [];
       },
-      moveCSToNTM() {
+      moveCSToNTT() {
         this.currentSuspectCheckedArray.forEach(suspect => {
-          this.$store.commit('MOVE_FROM_CS_TO_NTM', suspect);
+          this.$store.commit('MOVE_FROM_CS_TO_NTT', suspect);
         })
 
         this.currentSuspectCheckedArray = [];
@@ -185,26 +185,26 @@
 
         this.leadingSuspectCheckedArray = [];
       },
-      moveLSToNTM() {
+      moveLSToNTT() {
         this.leadingSuspectCheckedArray.forEach(suspect => {
-          this.$store.commit('MOVE_FROM_LS_TO_NTM', suspect);
+          this.$store.commit('MOVE_FROM_LS_TO_NTT', suspect);
         })
 
         this.leadingSuspectCheckedArray = [];
       },
-      moveNTMToCS() {
-        this.notTheMurdererCheckedArray.forEach(suspect => {
-          this.$store.commit('MOVE_FROM_NTM_TO_CS', suspect);
+      moveNTTToCS() {
+        this.notTheThiefCheckedArray.forEach(suspect => {
+          this.$store.commit('MOVE_FROM_NTT_TO_CS', suspect);
         })
 
-        this.notTheMurdererCheckedArray = [];
+        this.notTheThiefCheckedArray = [];
       },
-      moveNTMToLS() {
-        this.notTheMurdererCheckedArray.forEach(suspect => {
-          this.$store.commit('MOVE_FROM_NTM_TO_LS', suspect);
+      moveNTTToLS() {
+        this.notTheThiefCheckedArray.forEach(suspect => {
+          this.$store.commit('MOVE_FROM_NTT_TO_LS', suspect);
         })
 
-        this.notTheMurdererCheckedArray = [];
+        this.notTheThiefCheckedArray = [];
       }
     },
     computed: {

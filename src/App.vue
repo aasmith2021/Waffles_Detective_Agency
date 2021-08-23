@@ -89,7 +89,7 @@ export default {
     return {
       menuItems: [
         'Home',
-        'Map',
+        'Search For Clues',
         'Suspects',
         'Solve the Case'
       ]
@@ -97,10 +97,12 @@ export default {
   },
   methods: {
     routeToPage(item) {
-      if((this.$route.name != item) && (item != 'Solve the Case')) {
-        this.$router.push({ name: item });
-      } else if ((this.$route.name != 'Solve') && (item === 'Solve the Case')) {
+      if ((item === 'Solve the Case') && (this.$route.name != 'Solve')) {
         this.$router.push({ name: 'Solve'});
+      } else if ((item === 'Search For Clues') && (this.$route.name != 'SearchForClues')) {
+        this.$router.push({ name: 'SearchForClues'});
+      } else if ((this.$route.name != item) && (item != 'Solve the Case') && (item != 'Search For Clues')) {
+        this.$router.push({ name: item });
       }
     }
   },
@@ -132,11 +134,11 @@ export default {
         const currentSuspects = [...suspects];
 
         const randomIndexFromSuspects = Math.floor(Math.random() * suspects.length);
-        const murderer = suspects[randomIndexFromSuspects];
+        const thief = suspects[randomIndexFromSuspects];
 
         this.$store.commit('SET_ALL_SUSPECTS', suspects);
         this.$store.commit('SET_ALL_CURRENT_SUSPECTS', currentSuspects);
-        this.$store.commit('SET_MURDERER', murderer);
+        this.$store.commit('SET_THIEF', thief);
       })
       .catch(error => {
           console.log(error);

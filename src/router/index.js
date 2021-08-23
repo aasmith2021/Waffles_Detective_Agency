@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Map from '../views/Map.vue'
+import SearchForClues from '../views/SearchForClues.vue'
 import Suspects from '../views/Suspects.vue'
 import Solve from '../views/Solve.vue'
 import Loading from '../views/Loading.vue'
@@ -16,9 +16,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/map',
-    name: 'Map',
-    component: Map
+    path: '/search',
+    name: 'SearchForClues',
+    component: SearchForClues
   },
   {
     path: '/suspects',

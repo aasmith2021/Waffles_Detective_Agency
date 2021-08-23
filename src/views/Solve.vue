@@ -27,7 +27,7 @@
                     color="primary"
                     @click="submitAccusation"
                 >
-                    Accuse the suspect of murder!
+                    Accuse the suspect!
                 </v-btn>
 
                 <v-dialog
@@ -73,10 +73,10 @@
                             class="text-body-1"
                         >
                             We brought the {{ accusedAnimal }} down to the police station for questioning,
-                            but they have an air-tight alibi. So, they couldn't have commited the murder.
+                            but they have an air-tight alibi. So, they couldn't have commited the crime.
                             <br />
                             <br />
-                            Keep looking! The killer is still out there somewhere...
+                            Keep looking! The thief is still out there somewhere...
                         </v-card-text>
 
                         <v-card-actions>
@@ -99,7 +99,7 @@
                 >
                     <v-card class="d-flex flex-column align-center text-center">
                         <v-card-title>
-                            You Found The <br v-show="addLineBreaks" />Murderer!
+                            You Found The <br v-show="addLineBreaks" />Thief!
                         </v-card-title>
 
                         <v-card-text 
@@ -109,11 +109,11 @@
                             and after hearing about the evidence you found, the {{ accusedAnimal }} confessed!
                             <br />
                             <br />
-                            <em>"I wanted to get revenge, and I thought I'd get away with it,"</em> the {{ accusedAnimal }} said.
+                            <em>"I was really hungry, and thought no one would notice that all of {{ $store.state.stolenObject }} was missing."</em> the {{ accusedAnimal }} said.
                             <em>"But, I didn't know the agents from Waffles' Detective Agency would be involved!"</em>
                             <br />
                             <br />
-                            With that, the {{ accusedAnimal }} was taken away to face justice.
+                            The {{ accusedAnimal }} apologized, returned all of the {{ $store.state.stolenObject }} that was left, and paid for the food that was eaten.
                         </v-card-text>
 
                         <v-card-actions>
@@ -142,7 +142,7 @@
                         <v-card-text
                             class="text-body-1"
                         >
-                            Unfortunately, after two accusations of innocent suspects, the real murderer has likely become nervous and skipped town.
+                            Unfortunately, after two accusations of innocent suspects, the real thief has likely become nervous and skipped town.
                             <br />
                             <br />
                             We'll find them eventually, but we have to mark this as a "cold case" and move on to more pressing mysteries.
@@ -229,7 +229,7 @@ export default {
         submitAccusation() {
             if (this.accusedAnimal === '') {
                 this.noSuspectSelectedDialog = true;
-            } else if (this.accusedAnimal === this.$store.state.murderer.name) {
+            } else if (this.accusedAnimal === this.$store.state.thief.name) {
                 this.correctAccusationSubmitted = true;
             } else {
                 this.incorrectAccusationSubmitted = true;

@@ -41,7 +41,7 @@
                     v-show="currentPageNumber === 1"
                     class="my-2 mt-4 white--text text-h4 text-md-h2 text-center"
                 >
-                There's Been A Murder!
+                There's Been A Robbery!
                 </v-card-title>
             </div>
 
@@ -54,7 +54,7 @@
                 cold!
                 <br />
                 <br />
-                There's a killer on the loose, and we've got to stop them before they kill again.
+                An unidentified animal has broken into the Cincinnai Zoo and stolen ALL of the <b>{{ $store.state.stolenObject }}</b>!
             </v-card-text>
 
             <v-card-text
@@ -87,7 +87,7 @@
                 My name is Detective Waffles, and I'm the top mystery-solving dog in the world!
                 <br />
                 <br />
-                But, I'll need your assistance to find clues, interview suspects, and identify the murderer.
+                But, I'll need your assistance to find clues, interview suspects, and figure out who the thief is.
             </v-card-text>
 
             <v-card-text
@@ -135,7 +135,7 @@
                 :height="letsGoButtonHeight"
                 @click="setStartPageToFinished"
             >
-                Let's go!<br v-show="addButtonBreak" /> We have a murderer<br v-show="addButtonBreak" /> to find!
+                Let's go!
             </v-btn>
         </v-card>
     </div>
@@ -210,6 +210,8 @@ export default {
     },
     created() {
         this.currentPageNumber = 1;
+        const randomStolenObjectIndex = Math.floor(Math.random() * this.$store.state.stolenObjects.length);
+        this.$store.commit('SET_STOLEN_OBJECT', this.$store.state.stolenObjects[randomStolenObjectIndex]);
     },
 }
 </script>
