@@ -15,7 +15,49 @@ export default new Vuex.Store({
     leadingSuspects: [],
     notTheThief: [],
     thief: {},
-    accusationsRemaining: 2
+    accusationsRemaining: 2,
+    clues: [
+      {
+        id: 1,
+        field: 'latinName',
+        clueText: 'Rhymes with "Chimney"'
+      },
+      {
+        id: 2,
+        field: 'type',
+        clueText: 'I\'m a mammal'
+      },
+      {
+        id: 3,
+        field: 'activeTime',
+        clueText: 'When you\'re getting ready for bed, I\'m about to get up'
+      },
+      {
+        id: 4,
+        field: 'length',
+        clueText: 'I\'m taller than a bread box'
+      },
+      {
+        id: 5,
+        field: 'weight',
+        clueText: 'I\'m lighter than a car'
+      },
+      {
+        id: 6,
+        field: 'lifespan',
+        clueText: 'I will outlive a hampster'
+      },
+      {
+        id: 7,
+        field: 'habitat',
+        clueText: 'Likes to live near lots of leaves!'
+      },
+      {
+        id: 8,
+        field: 'range',
+        clueText: 'I can see the Eiffel Tower from where I live'
+      }
+    ]
   },
   mutations: {
     SET_STOLEN_OBJECT(state, stolenObject) {
