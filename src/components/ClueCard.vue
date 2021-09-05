@@ -6,10 +6,14 @@
     <v-card-title class="text-h5 font-weight-bold">
         Clue # {{ clue.id }}
     </v-card-title>
-    <v-card-text class="pb-0 text-body-1" style="height: 50px;">
+    <v-card-text
+        class="pb-0 text-body-1"
+        style="height: 50px;"
+    >
     </v-card-text>
     <v-card-actions>
     <v-btn
+        class="mb-3"
         text
         color="secondary accent-4"
         @click="reveal = true"
@@ -22,14 +26,11 @@
     <v-card
         v-if="reveal"
         class="transition-fast-in-fast-out v-card--reveal"
-        style="height: 75%;"
+        style="height: 68.5%;"
         elevation="0"
     >
-        <v-card-title class="text-h5 font-weight-bold">
-
-        </v-card-title>
         <v-card-text class="pb-0 text-body-1">
-            {{ clue.clueText }}
+            {{ clue.clue }}
         </v-card-text>
         <v-spacer class="my-7"></v-spacer>
         <v-card-actions class="pt-0">
@@ -72,7 +73,7 @@ export default {
 
 <style>
 .v-card--reveal {
-  bottom: 0;
+  bottom: 12px;
   opacity: 1 !important;
   position: absolute;
   width: 100%;

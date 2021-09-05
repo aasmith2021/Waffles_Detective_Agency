@@ -1,0 +1,104 @@
+{
+    "clues": {
+        "type": {
+            "mammal": [
+                "The suspect is warm-blooded",
+                "The suspect has a complex brain",
+                "The suspect has hair or fur"
+            ],
+            "bird": [
+                "The suspect has feathers",
+                "The suspect has a beak",
+                "The suspect comes from a species that lays eggs"
+            ],
+            "reptile": [
+                "The suspect is cold-blooded",
+                "The suspect has a backbone",
+                "The suspect has scales"
+            ],
+            "marsupial": [
+                "The suspect is warm-blooded",
+                "The suspect has hair or fur",
+                "The suspect has a pouch"
+            ]
+        },
+        "activeTime": {
+            "nocturnal": [
+                "While you're asleep, the suspect is awake",
+                "The suspect lives by the light of the moon",
+                "The suspect could be considered a \"night owl\""
+            ],
+            "diurnal": [
+                "The suspect likes to play all day",
+                "The suspect could enjoy sun bathing",
+                "The suspect is active during business hours"
+            ]
+        },
+        "length": {
+            "short": [
+                "It is rumored that the suspect's nickname is \"shorty\"",
+                "A witness says the suspect is small in stature",
+                "The suspect is vertically challenged."
+            ],
+            "medium": [
+                "The suspect is bigger than a loaf of bread",
+                "The suspect is bigger than a house cat",
+                "The suspect is of medium build"
+            ],
+            "long": [
+                "The suspect is taller than a kindergartner",
+                "The suspect is tall enough to ride the kiddie coaster at the county fair",
+                "The suspect is taller than a yardstick"
+            ],
+            "veryLong": [
+                "The suspect is too big for a kiddie pool",
+                "The suspect is taller than a car",
+                "The suspect has a nickname of \"Big Fella\""
+            ]
+        },
+        "weight": {
+            "small": [
+                "The suspect weighs less than a bowling ball",
+                "The suspect weighs more than an olive",
+                "A first grader could pick up the suspect"
+            ],
+            "medium": [
+                "The suspect weighs more than two gallons of milk",
+                "The suspect weighs less than a car",
+                "The suspect weighs more than three watermelons"
+            ],
+            "large": [
+                "The suspect weighs at least 10 kilograms",
+                "The suspect weighs less than the Empire State Building",
+                "The suspect was described by one witness as \"hefty\""
+            ],
+            "veryLarge": [
+                "The suspect's weight is at least in the double-digits",
+                "The suspect would be a great partner for \"the blob\" at camp",
+                "The suspect would make a bathroom scale groan"
+            ]
+        },
+        "lifespan": {
+            "short": [
+                "The suspect's lifespan is less than a decade",
+                "The suspect's age is less than 10",
+                "The suspect is a senior citizen at only 9 years old"
+            ],
+            "medium": [
+                "The suspect can live for up to two decades",
+                "The suspect has a lifespan of up to 20 years",
+                "The suspect is 17 years old and receives the senior discount"
+            ],
+            "long": [
+                "During their full life, the suspect will likely live to see at least 5 presidential terms",
+                "The suspect is at least 21 years old",
+                "In binary, the suspect will likely live at least 10100 years"
+            ]
+        },
+        "habitat": [
+            "The suspect is thought to live on land",
+            "The suspect may be a native of the water",
+            "The suspect's habitat is unknown"
+        ]
+    }
+}
