@@ -79,7 +79,7 @@
             "name": "American Alligator",
             "latinName": "Alligator mississippiensis",
             "type": "Reptile",
-            "activeTime": "Diurnal and Nocturnal",
+            "activeTime": "Nocturnal",
             "lengthMin": "9.0",
             "lengthMax": "16.0",
             "weightMin": "200",

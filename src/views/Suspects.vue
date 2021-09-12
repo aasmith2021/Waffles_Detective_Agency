@@ -2,7 +2,7 @@
     <div>
         <h1 class="text-h2 white--text text-center mt-3">Suspects</h1>
         <div
-            class="d-flex flex-wrap space-between"
+            class="d-flex flex-wrap justify-space-around"
         >
             <v-card
                 class="mt-6 mx-6"

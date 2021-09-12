@@ -7,12 +7,22 @@
 
                 <v-card-title
                     class="d-block text-center"
+                    v-if="$store.state.accusationsRemaining > 0"
                 >
                     We've gathered the clues, <br v-show="addLineBreaks" />and it's time to make an <br v-show="addLineBreaks" />accusation!
                     <br />
                     <br />
-                    But, choose carefully - <br v-show="addLineBreaks" />you only have <span class="primary--text">{{ $store.state.accusationsRemaining }}</span> guess<span v-show="$store.state.accusationsRemaining > 1 || $store.state.accusationsRemaining === 0">es</span><br v-show="addLineBreaks" /> left!
+                    But, choose carefully - <br v-show="addLineBreaks" />you only have <span class="primary--text">{{ $store.state.accusationsRemaining }}</span>
+                    <span v-if="$store.state.accusationsRemaining === 1"> guess</span><span v-else> guesses</span>
+                    <span v-show="$store.state.accusationsRemaining < 2"> left</span><br v-show="addLineBreaks" />!
                 </v-card-title>
+                                <v-card-title
+                    class="d-block text-center"
+                    v-else
+                >
+                    You've run out of guesses!
+                </v-card-title>
+
 
                 <v-select
                     class="fit"
@@ -109,11 +119,11 @@
                             and after hearing about the evidence you found, the {{ accusedAnimal }} confessed!
                             <br />
                             <br />
-                            <em>"I was really hungry, and thought no one would notice that all of {{ $store.state.stolenObject }} was missing."</em> the {{ accusedAnimal }} said.
+                            <em>"I was really hungry, and thought no one would notice that all of {{ $store.state.stolenObject }} <span v-if="isSingularWord">was</span><span v-else>were</span> missing."</em> the {{ accusedAnimal }} said.
                             <em>"But, I didn't know the agents from Waffles' Detective Agency would be involved!"</em>
                             <br />
                             <br />
-                            The {{ accusedAnimal }} apologized, returned all of the {{ $store.state.stolenObject }} that was left, and paid for the food that was eaten.
+                            The {{ accusedAnimal }} apologized, returned all of the {{ $store.state.stolenObject }} that remained, and paid for the food that was eaten.
                         </v-card-text>
 
                         <v-card-actions>
@@ -247,7 +257,7 @@ export default {
         },
         refreshGame() {
             this.$router.push({ name: 'Loading'});
-            this.$router.go();
+            this.$store.commit('SET_START_PAGE_TO_NOT_FINISHED');
         },
         exit() {
             this.$store.commit('SET_EXIT_GAME_TO_TRUE');
@@ -274,6 +284,9 @@ export default {
                 case 'xl': return false
                 default: return false
             }
+        },
+        isSingularWord() {
+            return this.$store.state.stolenObject.substring(this.$store.state.stolenObject.length-1).toLowerCase() !== 's';
         }
     },
     created() {

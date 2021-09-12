@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Notepad from '../views/Notepad.vue'
 import SearchForClues from '../views/SearchForClues.vue'
 import Suspects from '../views/Suspects.vue'
 import Solve from '../views/Solve.vue'
@@ -12,8 +12,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Suspects',
+    component: Suspects
   },
   {
     path: '/search',
@@ -21,9 +21,9 @@ const routes = [
     component: SearchForClues
   },
   {
-    path: '/suspects',
-    name: 'Suspects',
-    component: Suspects
+    path: '/notepad',
+    name: 'Notepad',
+    component: Notepad
   },
   {
     path: '/solve',

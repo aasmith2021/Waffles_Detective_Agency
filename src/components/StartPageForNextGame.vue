@@ -3,30 +3,6 @@
         <v-card
             class="d-flex flex-column align-center primary mx-8"
         >
-                <v-dialog
-                    persistent
-                    v-model="noNameInputDialog"
-                    :width="dialogWidth"
-                >
-                    <v-card class="d-flex flex-column align-center text-center">
-                        <v-card-title>
-                            Please Enter a Name
-                        </v-card-title>
-
-                        <v-card-text>
-                            You must enter a name between 1-25 characters. Please try again.
-                        </v-card-text>
-
-                        <v-card-actions>
-                            <v-btn
-                                color="primary"
-                                @click="noNameInputDialog = false"
-                            >
-                                Ok
-                            </v-btn>
-                        </v-card-actions>
-                    </v-card>
-                </v-dialog>
 
             <div class="d-flex flex-column flex-md-row align-center">
                 <v-img
@@ -41,7 +17,7 @@
                     v-show="currentPageNumber === 1"
                     class="my-2 mt-4 white--text text-h4 text-md-h2 text-center"
                 >
-                There's Been A Robbery!
+                There's Been Another Robbery!
                 </v-card-title>
             </div>
 
@@ -50,63 +26,29 @@
                 class="white--text text-subtitle-1 text-sm-h5 text-center font-weight-regular px-16"
                 v-show="currentPageNumber === 1"
             >
-                Thank goodness you're here! There's no time to waste...we've got to get moving before the trail gets
-                cold!
+                Thank goodness you're still here, <b>{{ $store.state.userName }}</b>! Another bandit has been at it again!
                 <br />
                 <br />
-                An unidentified animal has broken into the Cincinnai Zoo and stolen ALL of the <b>{{ $store.state.stolenObject }}</b>!
+                This time, an animal has broken into the Cincinnai Zoo and stolen ALL of the <b>{{ $store.state.stolenObject }}</b>!
             </v-card-text>
 
             <v-card-text
-                class="d-flex flex-column align-center white--text text-subtitle-1 text-sm-h5 text-center font-weight-regular px-16"
+                class="white--text text-subtitle-1 text-sm-h5 text-center font-weight-regular px-16"
                 v-show="currentPageNumber === 2"
-            >
-                <div v-show="currentPageNumber === 2">
-                    Well, grab your things ..... um, what is your name again?
-                    <br />
-                    <br />
-                </div>
-                <v-form id="name-form" v-show="currentPageNumber === 2">
-                    <v-text-field
-                        class="centered-input white px-4 text-h6"
-                        v-model="userName"
-                        maxlength="25"
-                        required
-                    >
-                    </v-text-field>
-                </v-form>
-            </v-card-text>
-
-            <v-card-text
-                class="white--text text-subtitle-1 text-sm-h5 text-center font-weight-regular px-16"
-                v-show="currentPageNumber === 3"
-            >
-                It's nice to meet you, <b>{{ userName }}</b>!
-                <br />
-                <br />
-                My name is Detective Waffles, and I'm the top mystery-solving dog in the world!
-                <br />
-                <br />
-                But, I'll need your assistance to find clues, interview suspects, and figure out who the thief is.
-            </v-card-text>
-
-            <v-card-text
-                class="white--text text-subtitle-1 text-sm-h5 text-center font-weight-regular px-16"
-                v-show="currentPageNumber === 4"
             >
                 Are you ready to solve the mystery with me?
             </v-card-text>
 
             <v-card-text
                 class="white--text text-subtitle-1 text-sm-h5 text-center font-weight-regular px-16"
-                v-show="currentPageNumber === 5"
+                v-show="currentPageNumber === 3"
             >
                 All right, then! Let's get started!
             </v-card-text>
 
             <!-- BUTTONS -->
             <v-btn
-                v-show="currentPageNumber === 1 || currentPageNumber === 3"
+                v-show="currentPageNumber === 1"
                 class="my-5"
                 @click="setCurrentPageNumber(currentPageNumber + 1)"
             >
@@ -115,14 +57,6 @@
 
             <v-btn
                 v-show="currentPageNumber === 2"
-                class="my-5"
-                @click="updateUserNameInStore()"
-            >
-                Next
-            </v-btn>
-
-            <v-btn
-                v-show="currentPageNumber === 4"
                 class="my-5"
                 @click="setCurrentPageNumber(currentPageNumber + 1)"
             >
@@ -130,7 +64,7 @@
             </v-btn>
 
             <v-btn
-                v-show="currentPageNumber === 5"
+                v-show="currentPageNumber === 3"
                 class="my-5"
                 :height="letsGoButtonHeight"
                 @click="setStartPageToFinished"
@@ -145,7 +79,7 @@
 import gameSetup from '../views/modules/gameSetup.js';
 
 export default {
-    name: 'start-page',
+    name: 'start-page-for-next-game',
     data() {
         return {
             currentPageNumber: 0,
@@ -156,7 +90,6 @@ export default {
     methods: {
         setStartPageToFinished() {
             this.$store.commit('SET_START_PAGE_TO_FINISHED');
-            this.$store.commit('SET_GAME_FROM_SCRATCH_TO_FALSE');
             
             if (this.$route.name != 'Suspects') {
                 this.$router.push({ name: 'Suspects'});
@@ -168,14 +101,6 @@ export default {
         checkMinLength() {
             if (this.userName.length === 0) {
                 this.noNameInputDialog = true;
-            }
-        },
-        updateUserNameInStore() {
-            this.checkMinLength();
-
-            if (this.noNameInputDialog === false) {
-                this.$store.commit('UPDATE_USER_NAME', this.userName);
-                this.setCurrentPageNumber(this.currentPageNumber + 1);
             }
         },
         async setupGameData() {
@@ -221,6 +146,7 @@ export default {
         }
     },
     created() {
+        this.$store.commit('RESET_STORE_FOR_ANOTHER_GAME');
         this.currentPageNumber = 1;
         const randomStolenObjectIndex = Math.floor(Math.random() * this.$store.state.stolenObjects.length);
         this.$store.commit('SET_STOLEN_OBJECT', this.$store.state.stolenObjects[randomStolenObjectIndex]);

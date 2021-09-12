@@ -16,7 +16,8 @@ export default new Vuex.Store({
     notTheThief: [],
     thief: {},
     accusationsRemaining: 2,
-    clues: []
+    clues: [],
+    gameFromScratch: true,
   },
   mutations: {
     SET_STOLEN_OBJECT(state, stolenObject) {
@@ -24,6 +25,9 @@ export default new Vuex.Store({
     },
     SET_START_PAGE_TO_FINISHED(state) {
       state.startPageFinished = true;
+    },
+    SET_START_PAGE_TO_NOT_FINISHED(state) {
+      state.startPageFinished = false;
     },
     SET_EXIT_GAME_TO_TRUE(state) {
       state.exitGame = true;
@@ -94,6 +98,15 @@ export default new Vuex.Store({
     ADD_CLUE(state, clue) {
       clue.id = state.clues.length + 1;
       state.clues.push(clue);
+    },
+    SET_GAME_FROM_SCRATCH_TO_FALSE(state) {
+      state.gameFromScratch = false;
+    },
+    RESET_STORE_FOR_ANOTHER_GAME(state) {
+      state.leadingSuspects = [];
+      state.notTheThief = [];
+      state.accusationsRemaining = 2;
+      state.clues = [];
     }
   },
   actions: {

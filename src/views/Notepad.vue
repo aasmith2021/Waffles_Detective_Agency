@@ -1,9 +1,13 @@
 <template>
+  <div>
+    <h1 class="text-h2 white--text text-center mt-3 mr-lg-6">Notepad</h1>
+  
   <div
     class="d-flex flex-column-reverse align-stretch flex-md-row justify-md-center align-md-start"
   >
 
-    <v-card class="d-flex flex-column align-start mt-6 mx-6">
+    <v-card
+      class="d-flex flex-column align-start mt-6 mx-6 column-card">
       <v-card-title class="text-h4 ml-2">
         Not The <br v-show="addCardTitleBreak" />Thief
       </v-card-title>
@@ -52,7 +56,7 @@
       <v-spacer class="my-1"></v-spacer>
     </v-card>
     
-    <v-card class="d-flex flex-column align-start mt-6 mx-6">
+    <v-card class="d-flex flex-column align-start mt-6 mx-6 column-card">
       <v-card-title class="text-h4 ml-2">
         Current <br v-show="addCardTitleBreak" />Suspects
       </v-card-title>
@@ -101,7 +105,7 @@
       <v-spacer class="my-1"></v-spacer>
     </v-card>
 
-    <v-card class="d-flex flex-column align-start mt-6 mx-6">
+    <v-card class="d-flex flex-column align-start mt-6 mx-6 column-card">
       <v-card-title class="text-h4 ml-2">
         Leading <br v-show="addCardTitleBreak" />Suspects
       </v-card-title>
@@ -151,11 +155,12 @@
     </v-card>
 
   </div>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'Home',
+    name: 'Notepad',
     data() {
       return {
         currentSuspectCheckedArray: [],        
@@ -221,3 +226,11 @@
     }
   }
 </script>
+
+<style scoped>
+@media only screen and (min-width: 720px) {
+  .column-card {
+    min-width: 325px;
+  }
+}
+</style>
