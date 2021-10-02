@@ -10,18 +10,24 @@ const getSuspectsAndClues = async function() {
         clues: [],
     }
 
-    const allAnimalsResponse = await animalDataService.getAnimalData();
+    const suspectsData = await animalDataService.getAnimalData();
+    const suspects = suspectsData.data;
+    // Changes the keys of each suspect from the column
+    // names from the database to the camelCase of the app
+    suspects.forEach((suspect) => {
+        delete Object.assign(suspect, {['latinName']: suspect['latin_name'] })['latin_name'];
+        delete Object.assign(suspect, {['animalType']: suspect['animal_type'] })['animal_type'];
+        delete Object.assign(suspect, {['activeTime']: suspect['active_time'] })['active_time'];
+        delete Object.assign(suspect, {['lengthMin']: suspect['length_min'] })['length_min'];
+        delete Object.assign(suspect, {['lengthMax']: suspect['length_max'] })['length_max'];
+        delete Object.assign(suspect, {['weightMin']: suspect['weight_min'] })['weight_min'];
+        delete Object.assign(suspect, {['weightMax']: suspect['weight_max'] })['weight_max'];
+        delete Object.assign(suspect, {['range']: suspect['geo_range'] })['geo_range'];
+        delete Object.assign(suspect, {['image']: suspect['image_link'] })['image_link'];
+    });
+    console.log(suspects);
     const allClueDataResponse = await clueDataService.getClueData();
-    const allAnimals = allAnimalsResponse.data.animals;
     const clueData = allClueDataResponse.data.clues;
-    const numberOfSuspects = 9;
-    const suspects = [];
-
-    for (let i = 0; i < numberOfSuspects; i++) {
-        const randomIndexFromAllAnimals = Math.floor(Math.random() * allAnimals.length);
-        suspects.push(allAnimals[randomIndexFromAllAnimals]);
-        allAnimals.splice(randomIndexFromAllAnimals, 1);
-    }
 
     const currentSuspects = [...suspects];
 

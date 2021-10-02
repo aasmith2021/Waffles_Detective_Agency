@@ -38,7 +38,7 @@ const getAnimalTypeClue = (clueData, thief) => {
       clue: ''
     }
 
-    switch(thief.type.toLowerCase()) {
+    switch(thief.animalType.toLowerCase()) {
       case 'mammal': {
         animalTypeClue.clue = clueData.type.mammal[randomIndexBetween0And2];
         break;

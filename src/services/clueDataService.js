@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const clueServiceAxios = axios.create();
+
 export default {
     getClueData() {
-        return axios.get('ClueData.json');
+        return clueServiceAxios.get('ClueData.json');
     }
 }

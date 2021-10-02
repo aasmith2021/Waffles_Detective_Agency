@@ -26,7 +26,7 @@
                     <v-card-text
                         class="px-2 pt-0 pb-2 text-center text-lg-left"
                     >
-                        <b>Type:</b> {{ animal.type }}
+                        <b>Type:</b> {{ animal.animalType }}
                         <br/>
                         <b>Height:</b> {{ animal.lengthMin }} - {{ animal.lengthMax }} ft.
                         <br/>
