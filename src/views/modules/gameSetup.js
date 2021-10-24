@@ -10,7 +10,8 @@ const getSuspectsAndClues = async function() {
         clues: [],
     }
 
-    const suspectsData = await animalDataService.getAnimalData();
+    const NUMBER_OF_SUSPECTS = 9;
+    const suspectsData = await animalDataService.getSuspects(NUMBER_OF_SUSPECTS);
     const suspects = suspectsData.data;
     // Changes the keys of each suspect from the column
     // names from the database to the camelCase of the app

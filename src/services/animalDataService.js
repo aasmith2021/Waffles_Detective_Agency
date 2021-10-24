@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default {
-    getAnimalData() {
-        return axios.get('animals/random/9');
+    getSuspects(numberOfSuspects) {
+        return axios.get(`animals/rand/${numberOfSuspects}`);
     }
 }
