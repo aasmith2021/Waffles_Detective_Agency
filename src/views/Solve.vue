@@ -13,8 +13,11 @@
                     <br />
                     <br />
                     But, choose carefully - <br v-show="addLineBreaks" />you only have <span class="primary--text">{{ $store.state.accusationsRemaining }}</span>
-                    <span v-if="$store.state.accusationsRemaining === 1"> guess</span><span v-else> guesses</span>
-                    <span v-show="$store.state.accusationsRemaining < 2"> left</span><br v-show="addLineBreaks" />!
+                    <span v-if="$store.state.accusationsRemaining === 1"> guess</span><span v-else> guesses!</span>
+                    <span v-show="$store.state.accusationsRemaining < 2"> left!</span><br v-show="addLineBreaks" />
+                    <br />
+                    <br />
+                    Who do you think the thief is?
                 </v-card-title>
                                 <v-card-title
                     class="d-block text-center"

@@ -18,8 +18,9 @@ const getSuspectsAndClues = async function() {
         console.log(e);
     }
     const suspects = suspectsData.data;
-    // Changes the keys of each suspect from the column
-    // names from the database to the camelCase of the app
+
+    // Changes the keys of each suspect from snake_case names
+    // to the camelCase of the app
     suspects.forEach((suspect) => {
         delete Object.assign(suspect, {['latinName']: suspect['latin_name'] })['latin_name'];
         delete Object.assign(suspect, {['animalType']: suspect['animal_type'] })['animal_type'];
@@ -31,7 +32,7 @@ const getSuspectsAndClues = async function() {
         delete Object.assign(suspect, {['range']: suspect['geo_range'] })['geo_range'];
         delete Object.assign(suspect, {['image']: suspect['image_link'] })['image_link'];
     });
-    console.log(suspects);
+
     const allClueDataResponse = await clueDataService.getClueData();
     const clueData = allClueDataResponse.data.clues;
 
