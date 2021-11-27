@@ -19,7 +19,7 @@
             <v-card-text
                 class="white--text text--darken-3 text-body-1 font-weight-bold text-center"
             >
-                <em>You'll be redirected to the Cincinnati Zoo website in 10 seconds...</em>
+                <em>You'll be redirected to the Cincinnati Zoo website in 5 seconds...</em>
             </v-card-text>
         </v-card>
     </div>
@@ -31,7 +31,7 @@ export default {
     created() {
         setTimeout(() => {
             window.location.href = "http://cincinnatizoo.org/";
-        }, 10000);
+        }, 5000);
     }
 }
 </script>
