@@ -2,6 +2,7 @@
     <div>
         <v-card
             class="d-flex flex-column align-center primary mx-8"
+            @keyup.enter="clickNameEntryButton"
         >
                 <v-dialog
                     persistent
@@ -114,6 +115,7 @@
             </v-btn>
 
             <v-btn
+                id="name-entry-button"
                 v-show="currentPageNumber === 2"
                 class="my-5"
                 @click="updateUserNameInStore()"
@@ -186,6 +188,10 @@ export default {
             for (let i = 0; i < 5; i++) {
                 this.$store.commit('ADD_CLUE', suspectAndClueData.clues[i]);
             }
+        },
+        clickNameEntryButton() {
+            const nameEntryButton = document.querySelector('#name-entry-button');
+            nameEntryButton.click();
         }
     },
     computed: {
