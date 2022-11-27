@@ -11,13 +11,13 @@ const getSuspectsAndClues = async function() {
     }
 
     const NUMBER_OF_SUSPECTS = 9;
-    let suspectsData;
+    let suspects;
     try {
-        suspectsData = await animalDataService.getSuspects(NUMBER_OF_SUSPECTS);
+        suspects = await animalDataService.getSuspects(NUMBER_OF_SUSPECTS);
+        console.log(suspects);
     } catch (e) {
         console.log(e);
     }
-    const suspects = suspectsData.data;
 
     // Changes the keys of each suspect from snake_case names
     // to the camelCase of the app

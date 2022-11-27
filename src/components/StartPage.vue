@@ -119,6 +119,7 @@
                 v-show="currentPageNumber === 2"
                 class="my-5"
                 @click="updateUserNameInStore()"
+                @keyup.enter="updateUserNameInStore()"
             >
                 Next
             </v-btn>
